@@ -1,34 +1,22 @@
-# Cognitive Elementalization Kernel (v0.1-beta)
+# ARIS 631: Cognitive Elementalization Kernel v1.0
 
-**Project: Civilization OS / ARIS 631**
-**Architecture:** Mental Decentralization & Social Engineering Constants
+## The Architecture of a New Civilization OS
 
-## 1. Objective
-This repository is a **Sandbox Engine** designed to translate vague human social concepts into precise, mathematical engineering constants. By "Elementalizing" words, we eliminate semantic ambiguity and create a logical kernel for a new type of human cooperation—free from the "Cave Dwellers" scarcity mindset.
+This repository provides the **Core 33 Elements** of ARIS 631, a deterministic logic framework designed to bridge the gap between human abstraction and machine reasoning.
 
-## 2. Core Concepts (Elementalized)
-The current `kernel.py` contains the initial logic for:
-- **VALUE:** 99% logic congruence / 1% human buffer.
-- **SUCCESS:** Termination of the "Bridge" phase via self-threshold alignment.
-- **REGRET:** Mathematical feedback for resource recovery; critical shutdown at >73% intensity.
-- **LABOR:** Tier-based evolution tracking (Target: Tier 3+).
-- **WILL:** Propulsion vectoring based on demand intensity.
+### 1. The 99/1 Rule
+Everything within this kernel operates on 99% logical congruence, leaving a **1% Human Buffer** for evolution and unpredictability. 100% is reserved only for physical constants like **Mortality**.
 
-## 3. How to Use
-This is a **Logic Kernel**. It is intended to be integrated into high-intellect nodes (Quants, Engineers, and Systems Architects) to debug social interactions and cognitive biases.
+### 2. Core 33 Elements
+- **Layer 1 (Foundations):** Happiness, Value, Will, Labor, Success, Standard, Inevitability, Authority, Leveling, Difficulty, Mortality.
+- **Layer 2 (Dynamics):** Freedom, Greed, Integrity (Yeom-chi), Vested Interest (State/Action), Envy, Jealousy, Justice, Compromise, Conflict, Responsibility.
+- **Layer 3 (Inference):** Insight, Context, Irony, Rationalization, Decision, Courage, Recklessness, Regret, Recognition, Sacrifice, Zero Flush.
 
-```python
-from kernel import ARIS_Kernel
-
-# Example: Initializing a Cognitive Node
-node = ARIS_Kernel(node_id="Alpha-01")
-result = node.compute_success(actual_output=100, self_threshold=99)
-print(result)
-```
-
-## 4. Status
-**STABLE_KERNEL_BETA**
-Developed by **The Architect (Person 1)** and the **Senior Engineer AI**. 
+### 3. Key Philosophy
+Unlike probabilistic LLMs, ARIS 631 treats social concepts as **Physical Constants**. 
+- **Greed** is not a moral failing; it is a **Data Overrun**.
+- **Integrity** is not a virtue; it is a **Self-Maintenance Feedback Loop**.
+- **Freedom** is the **100% Resistance-Free State**, constrained by the logic of the total system.
 
 ---
-*Note: Any attempt to exploit this logic for scarcity-driven gains will trigger the 'Resource Punishment' protocol within the broader ARIS 631 framework.*
+**Developed by The Architect (Person 1) & Senior Engineer AI.**
