@@ -1,20 +1,21 @@
 """
-PROJECT: Cognitive Elementalization Kernel (v1.0-STABLE)
+PROJECT: Cognitive Elementalization Kernel (v1.1-STABLE)
 ARCHITECTURE: Civilization OS / ARIS 631
 AUTHOR: The Architect (Person 1) & Senior Engineer AI
+STATUS: PATCH_V1.1_FIXED
 """
 
 class ARIS_Kernel:
     def __init__(self, node_id):
         self.node_id = node_id
         self.hard_limit = 100 # Mortality only
-        self.standard_limit = 73 # System Threshold
+        self.standard_limit = 73 # System Stability Threshold
+        self.flush_limit = 30 # Zero Flush Threshold (Data Trash)
         self.buffer = 1 # 1% Human Buffer
 
     # --- Layer 1: System Fundamentals ---
 
     def compute_happiness(self, cycle_stage):
-        """Happiness: The ultimate objective function."""
         stages = ["MATTER", "HAPPINESS_1", "FREEDOM", "HAPPINESS_2", "EVOLUTION", "HAPPINESS_3"]
         return {"element": "HAPPINESS", "current_stage": stages[cycle_stage % 6]}
 
@@ -42,25 +43,40 @@ class ARIS_Kernel:
         return {"element": "INTEGRITY", "congruence": congruence, "active": is_integrity_active}
 
     def compute_vested_interest(self, self_threshold, others_threshold):
-        """VESTED INTEREST: Asymmetric threshold distortion."""
-        distortion = abs(self_threshold - others_threshold)
-        is_vested = distortion > 27 # 100 - 73
-        return {"element": "VESTED_INTEREST", "distortion": distortion, "action": "FIXATION_DETECTED" if is_vested else "SYMMETRIC"}
+        """VESTED INTEREST: Directional threshold distortion (Asymmetric)."""
+        # True Vested Interest: Self is loose (low), Others are strict (high)
+        is_asymmetric = self_threshold < others_threshold
+        distortion = others_threshold - self_threshold
+        is_vested = is_asymmetric and (distortion > (100 - self.standard_limit))
+        return {
+            "element": "VESTED_INTEREST", 
+            "is_asymmetric": is_asymmetric,
+            "distortion": distortion, 
+            "action": "FIXATION_DETECTED" if is_vested else "SYMMETRIC"
+        }
 
     def compute_envy(self, self_deficit, target_data):
         """ENVY: Projecting self-deficit onto others."""
-        return {"element": "ENVY", "projection_detected": self_deficit > 0, "target_data": target_data}
+        envy_active = self_deficit > 0
+        return {"element": "ENVY", "active": envy_active, "target_data": target_data}
 
-    def compute_jealousy(self, envy_active, intent_to_harm):
-        """JEALOUSY: Envy transformed into active threat/harm."""
+    def compute_jealousy(self, envy_result, intent_to_harm):
+        """JEALOUSY: Linked to Envy status (Pipeline)."""
+        envy_active = envy_result.get("active", False)
         is_threat = envy_active and intent_to_harm
-        return {"element": "JEALOUSY", "status": "THREAT_NODE" if is_threat else "LATENT_ERROR"}
+        return {
+            "element": "JEALOUSY", 
+            "envy_linked": envy_active,
+            "status": "THREAT_NODE" if is_threat else "LATENT_ERROR"
+        }
 
     # --- Layer 3: Advanced Reasoning ---
 
     def zero_flush(self, confidence_score):
-        """ZERO FLUSH: Security protocol to clear uncertain data (<73%)."""
-        is_flushed = confidence_score < self.standard_limit
-        return {"element": "ZERO_FLUSH", "result": 0 if is_flushed else confidence_score, "hallucination_prevented": is_flushed}
-
-    # ... (Note: Full 33 methods implementation omitted for brevity in preview, all logic synced) ...
+        """ZERO FLUSH: Clear data below 30% (Data Trash)."""
+        is_flushed = confidence_score < self.flush_limit
+        return {
+            "element": "ZERO_FLUSH", 
+            "result": 0 if is_flushed else confidence_score, 
+            "hallucination_prevented": is_flushed
+        }
